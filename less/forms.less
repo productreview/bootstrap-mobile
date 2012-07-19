@@ -42,7 +42,7 @@ input,
 button,
 select,
 textarea {
-  #font > .shorthand(@baseFontSize,normal,@baseLineHeight); // Set size, weight, line-height here
+  #font > .shorthand((@baseFontSize + 2),normal,@baseLineHeight); // Set size, weight, line-height here
 }
 input,
 button,
@@ -54,7 +54,9 @@ textarea {
 // Identify controls by their labels
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: @baseLineHeight / 2;
+  color: @textColor;
+  font-weight: bold;
 }
 
 // Form controls
@@ -84,7 +86,7 @@ input[type="color"],
   margin-bottom: 9px;
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
-  color: @gray;
+  color: @textColor;
 }
 
 // Reset appearance properties for textual inputs and textarea
@@ -352,7 +354,7 @@ select:focus:required:invalid {
 
 .help-block,
 .help-inline {
-  color: @gray; // lighten the text some for contrast
+  color: @grayDark; // lighten the text some for contrast
 }
 
 .help-block {
@@ -534,7 +536,7 @@ select:focus:required:invalid {
 
 // Margin to space out fieldsets
 .control-group {
-  margin-bottom: @baseLineHeight / 2;
+  margin-bottom: @baseLineHeight;
 }
 
 // Legend collapses margin, so next element is responsible for spacing

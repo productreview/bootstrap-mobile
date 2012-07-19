@@ -16,12 +16,13 @@
 
 // Gradient is applied to it's own element because overflow visible is not honored by IE when filter is present
 .navbar-inner {
-  min-height: @navbarHeight;
+  min-height: @navbarHeight - 1px;
   padding-left:  20px;
   padding-right: 20px;
   #gradient > .vertical(@navbarBackgroundHighlight, @navbarBackground);
   .border-radius(4px);
-  .box-shadow(~"0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1)");
+  .box-shadow(~"0 1px 3px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.1)");
+  border-bottom: 1px solid @navbarBorder;
 }
 
 // Set width to auto for default container
@@ -49,12 +50,16 @@
     display: block;
     // Vertically center the text given @navbarHeight
     @elementHeight: 20px;
-    padding: ((@navbarHeight - @elementHeight) / 2 - 2) 20px ((@navbarHeight - @elementHeight) / 2 + 2);
-    margin-left: -20px; // negative indent to left-align the text down the page
+    padding: 0 !important;
+    margin: 2px 0 0 !important;
     font-size: 20px;
     font-weight: 200;
     line-height: 1;
     color: @navbarBrandColor;
+    background: url('@{imgPath}main.png') no-repeat 0 0;
+    background-size: 250px;
+    .hide-text;
+    .size(36px, 120px);
   }
   // Plain text in topbar
   .navbar-text {
@@ -115,24 +120,23 @@
   .navbarVerticalAlign(28px); // Vertically center in navbar
   margin-bottom: 0;
   .search-query {
-    padding: 4px 9px;
-    #font > .sans-serif(13px, normal, 1);
-    color: @white;
+    padding: 4px 6px;
+    #font > .sans-serif((@baseFontSize + 3px), normal, 1);
+    color: @textColor;
     background-color: @navbarSearchBackground;
-    border: 1px solid @navbarSearchBorder;
-    .box-shadow(~"inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15)");
+    border: 1px solid @navbarSearchBorder !important;
+    .box-shadow(~"inset 0 1px 2px rgba(0,0,0,.2)");
     .transition(none);
-
     .placeholder(@navbarSearchPlaceholderColor);
 
     // Focus states (we use .focused since IE7-8 and down doesn't support :focus)
     &:focus,
     &.focused {
-      padding: 5px 10px;
-      color: @grayDark;
+      //padding: 4px 6px;
+      //color: @grayDark;
       text-shadow: 0 1px 0 @white;
       background-color: @navbarSearchBackgroundFocus;
-      border: 0;
+      //border: 0;
       .box-shadow(0 0 3px rgba(0,0,0,.15));
       outline: 0;
     }
@@ -201,10 +205,11 @@
   // Vertically center the text given @navbarHeight
   @elementHeight: 20px;
   padding: ((@navbarHeight - @elementHeight) / 2 - 1) 10px ((@navbarHeight - @elementHeight) / 2 + 1);
-  line-height: 19px;
+  line-height: @baseLineHeight;
   color: @navbarLinkColor;
   text-decoration: none;
-  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  text-shadow: 0 1px 0 rgba(0,0,0,.2);
+  font-size: @baseFontSize + 1px;
 }
 // Buttons
 .navbar .btn {
@@ -222,10 +227,12 @@
   padding: ((@navbarHeight - @elementHeight) / 2 - 1) 5px ((@navbarHeight - @elementHeight) / 2);
 }
 // Hover
+.navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
   background-color: @navbarLinkBackgroundHover; // "transparent" is default to differentiate :hover from .active
   color: @navbarLinkColorHover;
   text-decoration: none;
+  .box-shadow(~'inset 0 1px 1px rgba(0,0,0,.2), 0 1px 0 rgba(255,255,255,.2)');
 }
 
 // Active nav items
@@ -234,6 +241,7 @@
   color: @navbarLinkColorActive;
   text-decoration: none;
   background-color: @navbarLinkBackgroundActive;
+  .box-shadow(~'inset 0 1px 1px rgba(0,0,0,.2), 0 1px 0 rgba(255,255,255,.2)');
 }
 
 // Dividers (basically a vertical hr)
@@ -257,11 +265,18 @@
 .navbar .btn-navbar {
   display: none;
   float: right;
-  padding: 7px 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-  .buttonBackground(@navbarBackgroundHighlight, @navbarBackground);
-  .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075)");
+  padding: 5px 10px;
+  margin: 4px 0 0;
+  .buttonBackground(@navbarBtnBackgroundHighlight, @navbarBtnBackground);
+  .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.25)");
+  border-color: @navbarBtnBorder;
+  color: @white;
+  font-size: @baseFontSize + 2px;
+  text-shadow: 0 1px 0 @greenDark;
+  &:hover {
+      .box-shadow(~"inset 0 1px 2px rgba(0,0,0,.25), 0 1px 0 rgba(255,255,255,.25)");
+      background-position: 0 -5px !important;
+  }
 }
 .navbar .btn-navbar .icon-bar {
   display: block;
