@@ -21,7 +21,7 @@
   }
   .navbar-fixed-top .navbar-inner,
   .navbar-fixed-bottom .navbar-inner {
-    padding: 5px 10px;
+    padding: 5px 10px 0;
   }
   .navbar .container {
     width: auto;
@@ -40,13 +40,14 @@
   .nav-collapse {
     clear: both;
   }
-  .nav-collapse.collapse {
+  .nav-collapse.collapse,
+  .nav-collapse.search {
       .transition(height .0001s);
   }
   // Block-level the nav
   .nav-collapse .nav {
     float: none;
-    margin: (@baseLineHeight / 1.5) 0 (@baseLineHeight / 2);
+    margin: (@baseLineHeight) 0 0;
   }
   .nav-collapse .nav > li {
     float: none;
@@ -115,9 +116,9 @@
     float: none;
     padding: (@baseLineHeight / 2) 0 (@baseLineHeight / 4);
     margin: 0;
-    border-top: 1px solid @navbarBorder;
+    //border-top: 1px solid @navbarBorder;
     border-bottom: 0;
-    .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.2)");
+    //.box-shadow(~"inset 0 1px 0 rgba(255,255,255,.2)");
       input {
         margin-bottom: 0;
       }
@@ -131,6 +132,7 @@
   .nav-collapse.in .navbar-search {
     .shown;
   }
+  
   // Control-group in navbar
   .nav-collapse .navbar-search .control-group {
     background: @navbarBorder;
@@ -146,7 +148,8 @@
   }
   // Hide everything in the navbar save .brand and toggle button */
   .nav-collapse,
-  .nav-collapse.collapse {
+  .nav-collapse.collapse,
+  .nav-collapse.collapse-search {
     overflow: hidden;
     height: 0;
   }
@@ -169,7 +172,8 @@
 
 // Required to make the collapsing navbar work on regular desktops
 @media (min-width: 980px) {
-  .nav-collapse.collapse {
+  .nav-collapse.collapse,
+  .nav-collapse.collapse-search {
     height: auto !important;
     overflow: visible !important;
   }
