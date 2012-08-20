@@ -176,5 +176,36 @@
   .nav-collapse.collapse-search {
     height: auto !important;
     overflow: visible !important;
+    
+    .search_form {
+    	.navbar-search {
+    		display: block;
+    		visibility: visible;
+    		
+    		.control-group {
+    			margin-bottom: 0;
+    		}
+    	}
+    }
+  }
+  
+  .navbar-buttons {
+  	&.btn-menu {
+  		display: none;
+  	}
+  	
+  	&.btn-search {
+  		display: none;
+  	}
+  }
+  
+  .navbar-inner {
+	 .nav-collapse.search {
+	 	margin-top: 0;
+	 }
+	
+  	hr {
+    	display: none;
+    }
   }
 }
