@@ -11,11 +11,12 @@
 // Grays
 // -------------------------
 @black:                 #000;
-@grayDarker:            #222;
-@grayDark:              #333;
-@gray:                  #555;
-@grayLight:             #999;
-@grayLighter:           #eee;
+@grayBlack:             #333;
+@grayDarker:            #666;
+@grayDark:              #999;
+@gray:                  #ccc;
+@grayLight:             #e5e5e5;
+@grayLighter:           #f2f2f2;
 @white:                 #fff;
 
 
@@ -23,24 +24,38 @@
 // -------------------------
 @blue:                  #049cdb;
 @blueDark:              #0064cd;
+@blueLight:             #d9efff;
 @green:                 #46a546;
 @red:                   #9d261d;
 @yellow:                #ffc40d;
 @orange:                #f89406;
 @pink:                  #c3325f;
 @purple:                #7a43b6;
+@brown:                 #4c1a00;
+
+
+// Greens
+// -------------------------
+@greenDark:             #0a2b1a;
+@green:                 #80ba27;
+
+
+// Pros & Cons
+// -------------------------
+@pros:                  #008000;
+@cons:                  #cc0000;
 
 
 // Scaffolding
 // -------------------------
 @bodyBackground:        @white;
-@textColor:             @grayDark;
+@textColor:             #4d4d4d;
 
 
 // Links
 // -------------------------
-@linkColor:             #08c;
-@linkColorHover:        darken(@linkColor, 15%);
+@linkColor:             #0a74bf;
+@linkColorHover:        #0a64bf;
 
 
 // Typography
@@ -49,9 +64,9 @@
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
 
-@baseFontSize:          13px;
+@baseFontSize:          14px;
 @baseFontFamily:        @sansFontFamily;
-@baseLineHeight:        18px;
+@baseLineHeight:        20px;
 @altFontFamily:         @serifFontFamily;
 
 @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
@@ -71,10 +86,16 @@
 // -------------------------
 @btnBackground:                     @white;
 @btnBackgroundHighlight:            darken(@white, 10%);
-@btnBorder:                         #ccc;
+@btnBorder:                         @gray;
 
-@btnPrimaryBackground:              @linkColor;
-@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 15%);
+@btnPrimaryBackground:              #9ccc0a;
+@btnPrimaryBackgroundHighlight:     #68a629;
+
+@btnSecondaryBackground:            #ffd400;
+@btnSecondaryBackgroundHighlight:   @orange;
+
+@btnFacebookBackground:             #627db3;
+@btnFacebookBackgroundHighlight:    #3a62a6;
 
 @btnInfoBackground:                 #5bc0de;
 @btnInfoBackgroundHighlight:        #2f96b4;
@@ -95,7 +116,7 @@
 // Forms
 // -------------------------
 @inputBackground:               @white;
-@inputBorder:                   #ccc;
+@inputBorder:                   @grayDark;
 @inputBorderRadius:             3px;
 @inputDisabledBackground:       @grayLighter;
 @formActionsBackground:         #f5f5f5;
@@ -129,13 +150,14 @@
 
 // Sprite icons path
 // -------------------------
-@iconSpritePath:          "../img/glyphicons-halflings.png";
-@iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
+@imgPath:                 "../../images/frontend/mobile/";
+@iconSpritePath:          "../../images/frontend/mobile/bootstrap/glyphicons-halflings.png";
+@iconWhiteSpritePath:     "../../images/frontend/mobile/bootstrap/glyphicons-halflings-white.png";
 
 
 // Input placeholder text color
 // -------------------------
-@placeholderText:         @grayLight;
+@placeholderText:         @gray;
 
 
 // Hr border color
@@ -146,21 +168,26 @@
 // Navbar
 // -------------------------
 @navbarHeight:                    40px;
-@navbarBackground:                @grayDarker;
-@navbarBackgroundHighlight:       @grayDark;
+@navbarBackground:                #73b322;
+@navbarBackgroundHighlight:       #8dc12a;
+@navbarBorder:                    #4d8c0e;
 
-@navbarText:                      @grayLight;
-@navbarLinkColor:                 @grayLight;
+@navbarText:                      @white;
+@navbarLinkColor:                 @white;
 @navbarLinkColorHover:            @white;
 @navbarLinkColorActive:           @navbarLinkColorHover;
-@navbarLinkBackgroundHover:       transparent;
-@navbarLinkBackgroundActive:      @navbarBackground;
+@navbarLinkBackgroundHover:       @navbarBorder;
+@navbarLinkBackgroundActive:      @navbarLinkBackgroundHover;
 
-@navbarSearchBackground:          lighten(@navbarBackground, 25%);
+@navbarSearchBackground:          @white;
 @navbarSearchBackgroundFocus:     @white;
-@navbarSearchBorder:              darken(@navbarSearchBackground, 30%);
-@navbarSearchPlaceholderColor:    #ccc;
+@navbarSearchBorder:              @greenDark;
+@navbarSearchPlaceholderColor:    @gray;
 @navbarBrandColor:                @navbarLinkColor;
+
+@navbarBtnBackground:             #113d2c;
+@navbarBtnBackgroundHighlight:    #1e6b4d;
+@navbarBtnBorder:                 @greenDark;
 
 
 // Hero unit
